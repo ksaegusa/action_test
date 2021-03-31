@@ -13,7 +13,7 @@ jobs:
 
       - name: uninstall old ansible
         run: |
-          apt-get remove ansible
+          sudo apt-get remove ansible
 
       - name: Install dependencies
         run: |
