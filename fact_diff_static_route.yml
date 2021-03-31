@@ -1,0 +1,26 @@
+---
+- hosts: ios01
+  gather_facts: False
+
+  tasks:
+    - name: gathered
+      cisco.ios.ios_static_routes:
+        state: gathered
+      register: gather_result
+
+    - name: current config rendered
+      cisco.ios.ios_static_routes:
+        config: "{{ gather_result['gathered']  }}"
+        state: rendered
+      register: current_config
+
+    - name: asumed config rendered 
+      cisco.ios.ios_static_routes:
+        config: "{{ static_route }}"
+        state: rendered
+      register: assumed_config
+
+    - name: fact_diff
+      ansible.utils.fact_diff:
+        before: "{{ current_config.rendered }}"
+        after: "{{ assumed_config.rendered }}"

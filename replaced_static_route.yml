@@ -1,0 +1,9 @@
+---
+- hosts: ios01
+  gather_facts: False
+
+  tasks:
+    - name: replaced
+      cisco.ios.ios_static_routes:
+        config: "{{ static_route }}"
+        state: replaced

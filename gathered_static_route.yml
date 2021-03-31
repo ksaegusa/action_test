@@ -1,0 +1,15 @@
+---
+- hosts: ios01
+  gather_facts: False
+
+  tasks:
+    - name: gathered
+      cisco.ios.ios_static_routes:
+        state: gathered
+      register: gather_result
+
+    - name: Write the Static Route configuration to a file
+      copy:
+        content: "{{ {'static_route': gather_result['gathered'] } | to_nice_yaml }}"
+        dest: "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/static_route.yml"
+      delegate_to: localhost

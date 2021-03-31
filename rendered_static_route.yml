@@ -1,0 +1,20 @@
+---
+- hosts: ios01
+  gather_facts: False
+
+  tasks:
+    - name: rendered
+      cisco.ios.ios_static_routes:
+        config: "{{ static_route }}"
+        state: rendered
+      register: result
+
+    - name: config
+      ansible.builtin.debug:
+        msg: "{{ result.rendered }}"
+
+    - name: replaced checck 
+      cisco.ios.ios_static_routes:
+        config: "{{ static_route }}"
+        state: replaced
+      check_mode: yes

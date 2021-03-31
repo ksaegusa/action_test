@@ -1,0 +1,13 @@
+static_route:
+-   address_families:
+    -   afi: ipv4
+        routes:
+        -   dest: 0.0.0.0/0
+            next_hops:
+            -   forward_router_address: 10.10.20.254
+                interface: GigabitEthernet1
+    -   afi: ipv4
+        routes:
+        -   dest: 10.17.253.101/32
+            next_hops:
+            -   forward_router_address: 192.168.253.45
