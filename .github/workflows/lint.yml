@@ -1,4 +1,4 @@
-name: Playbook Lint
+name: playbook lint
 on: 
   push:
     branches: [ master ]
