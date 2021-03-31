@@ -1,11 +1,25 @@
 name: playbook lint
-on: 
-  push:
-    branches: [ master ]
+on: push
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          ansible --version
+      - uses: actions/checkout@v2
 
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+
+      - name: Install ansible collections
+        run: |
+          ansible-galaxy collection install -r requirements.yml
+
+      - name: Test 
+        run: |
+          ansible-playbook -i inventory/ios1.ini fact_diff_static_route.yml
