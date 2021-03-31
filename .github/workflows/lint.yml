@@ -1,0 +1,12 @@
+name: Playbook Lint
+on: 
+  push:
+    branches: [ master ]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        run: |
+          ansible --version
+
