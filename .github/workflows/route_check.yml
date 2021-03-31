@@ -1,5 +1,8 @@
 name: issue driven
-on: issue_comment
+on: 
+  issue_comment:
+  push:
+    branches: [ master ]
 jobs:
   issue_commented:
     # このジョブは Issue comment に対してのみ実行されます
