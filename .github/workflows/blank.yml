@@ -1,15 +1,9 @@
-on: issue_comment
-
+name: issue driven
+on: 
+  issue_comment:
+    branches:
+      - main
 jobs:
-  pr_commented:
-    # このジョブはプルリクエストコメントに対してのみ実行されます
-    name: PR comment
-    if: ${{ github.event.issue.pull_request }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "Comment on PR #${{ github.event.issue.number }}"
-
   issue_commented:
     # このジョブは Issue comment に対してのみ実行されます
     name: Issue comment
