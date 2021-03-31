@@ -14,6 +14,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
+          python3 -m pip uninstall ansible
           python3 -m pip install -r requirements.txt
 
       - name: Install ansible collections
