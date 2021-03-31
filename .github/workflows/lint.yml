@@ -14,7 +14,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip uninstall ansible==2.9.6
+          sudo pip uninstall ansible
           pip install -r requirements.txt
 
       - name: Install ansible collections
