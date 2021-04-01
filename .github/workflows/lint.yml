@@ -20,10 +20,6 @@ jobs:
           pip install --upgrade pip
           sudo pip install -r requirements.txt
 
-      - name: Install ansible collections
+      - name: Lint 
         run: |
-          ansible-galaxy collection install -r requirements.yml
-
-      - name: Test 
-        run: |
-          ansible-playbook -i inventory/ios1.ini fact_diff_static_route.yml
+          ansible-lint *_static_route.yml

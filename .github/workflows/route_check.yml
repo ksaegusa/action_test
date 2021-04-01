@@ -11,3 +11,29 @@ jobs:
     steps:
       - run: |
           echo "Comment on issue #${{ github.event.issue.number }}"
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: uninstall old ansible
+        run: |
+          sudo apt-get remove ansible
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          sudo pip install -r requirements.txt
+
+      - name: Install ansible collections
+        run: |
+          ansible-galaxy collection install -r requirements.yml
+
+      - name: Test 
+        run: |
+          ansible-playbook -i inventory/ios1.ini fact_diff_static_route.yml
