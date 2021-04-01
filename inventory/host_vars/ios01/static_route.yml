@@ -16,3 +16,8 @@ static_route:
         -   dest: 8.8.8.8/32
             next_hops:
             -   forward_router_address: 10.10.20.254
+    -   afi: ipv4
+        routes:
+        -   dest: 8.8.8.10/32
+            next_hops:
+            -   forward_router_address: 10.10.20.254
