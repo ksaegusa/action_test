@@ -1,12 +1,10 @@
 name: issue driven
-on: 
-  issue_comment:
-
+on: issue_comment
 jobs:
   issue_commented:
     name: Issue comment
     if: github.event_name == 'issue_comment' &&
-        startsWith(github.event.comment.body, '/subnet_get')
+        startsWith(github.event.comment.body, '/route_check')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          sudo pip install -r requirements.txt
+          pip install -r requirements.txt
 
       - name: Install ansible collections
         run: |
