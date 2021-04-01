@@ -14,10 +14,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: uninstall old ansible
-        run: |
-          sudo apt-get remove ansible
-
       - name: Install dependencies
         run: |
           pip install --upgrade pip
