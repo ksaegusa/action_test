@@ -1,6 +1,6 @@
 ---
 - hosts: ios01
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: gathered
@@ -14,7 +14,7 @@
         state: rendered
       register: current_config
 
-    - name: asumed config rendered 
+    - name: asumed config rendered
       cisco.ios.ios_static_routes:
         config: "{{ static_route }}"
         state: rendered

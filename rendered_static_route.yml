@@ -1,6 +1,6 @@
 ---
 - hosts: ios01
-  gather_facts: False
+  gather_facts: false
 
   tasks:
     - name: rendered
@@ -13,7 +13,7 @@
       ansible.builtin.debug:
         msg: "{{ result.rendered }}"
 
-    - name: replaced checck 
+    - name: replaced check
       cisco.ios.ios_static_routes:
         config: "{{ static_route }}"
         state: replaced
