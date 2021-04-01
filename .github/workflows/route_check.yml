@@ -4,9 +4,9 @@ on:
 
 jobs:
   issue_commented:
-    # このジョブは Issue comment に対してのみ実行されます
     name: Issue comment
-    if: ${{ !github.event.issue.pull_request }}
+    if: github.event_name == 'issue_comment' &&
+        startsWith(github.event.comment.body, '/subnet_get')
     runs-on: ubuntu-latest
     steps:
       - run: |
