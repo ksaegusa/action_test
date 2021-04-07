@@ -1,0 +1,11 @@
+acl_interfaces:
+-   name: GigabitEthernet0/0/0/0
+-   name: GigabitEthernet0/0/0/1
+-   name: GigabitEthernet0/0/0/2
+-   name: GigabitEthernet0/0/0/3
+-   name: GigabitEthernet0/0/0/4
+-   name: GigabitEthernet0/0/0/5
+-   name: GigabitEthernet0/0/0/6
+-   name: Loopback100
+-   name: Loopback200
+-   name: MgmtEth0/RP0/CPU0/0

@@ -1,0 +1,11 @@
+---
+- name: Assert Vars
+  ansible.builtin.assert:
+    that:
+      - current_config.rendered is defined
+      - assumed_config.rendered is defined
+
+- name: fact_diff
+  ansible.utils.fact_diff:
+    before: "{{ current_config.rendered }}"
+    after: "{{ assumed_config.rendered }}"

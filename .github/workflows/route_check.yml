@@ -25,4 +25,4 @@ jobs:
 
       - name: Test
         run: |
-          ansible-playbook -i inventory/ios1.ini fact_diff_static_route.yml
+          ansible-playbook -i inventory/hosts.ini fact_diff_static_route.yml -l ios01

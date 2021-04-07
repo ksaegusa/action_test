@@ -1,0 +1,8 @@
+acl_interfaces:
+-   name: Loopback11170
+-   name: Loopback12170
+-   name: Loopback13170
+-   name: Loopback14170
+-   name: GigabitEthernet1
+-   name: GigabitEthernet2
+-   name: GigabitEthernet3

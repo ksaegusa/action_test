@@ -1,0 +1,22 @@
+interfaces:
+-   description: Pod Number 11170
+    enabled: true
+    name: loopback11170
+-   description: Pod Number 12170
+    enabled: true
+    name: loopback12170
+-   description: Pod Number 13170
+    enabled: true
+    name: loopback13170
+-   description: Pod Number 14170
+    enabled: true
+    name: loopback14170
+-   description: MANAGEMENT INTERFACE - DON'T TOUCH ME
+    enabled: true
+    name: GigabitEthernet1
+-   description: Network Interface
+    enabled: false
+    name: GigabitEthernet2
+-   description: Network Interface
+    enabled: false
+    name: GigabitEthernet3

@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: import role
+      ansible.builtin.import_role: 
+        name: gathered

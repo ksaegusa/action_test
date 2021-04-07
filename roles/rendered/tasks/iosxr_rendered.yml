@@ -1,0 +1,36 @@
+---
+- name: iosxr_static_route
+  block:
+    - name: rendered
+      cisco.iosxr.iosxr_static_routes:
+        config: "{{ static_routes }}"
+        state: rendered
+      register: static_result
+
+    - name: debug post config
+      ansible.builtin.debug:
+        msg: "{{ static_result.rendered }}"
+
+- name: iosxr_l3_interfaces
+  block:
+    - name: rendered
+      cisco.iosxr.iosxr_l3_interfaces:
+        config: "{{ l3_interfaces }}"
+        state: rendered
+      register: l3interface_rendered
+
+    - name: debug post config
+      ansible.builtin.debug:
+        msg: "{{ l3interface_rendered.rendered }}"
+
+- name: iosxr_l2_interfaces
+  block:
+    - name: rendered
+      cisco.iosxr.iosxr_l2_interfaces:
+        config: "{{ l2_interfaces }}"
+        state: rendered
+      register: l2interface_rendered
+
+    - name: debug post config
+      ansible.builtin.debug:
+        msg: "{{ l2interface_rendered.rendered }}"

@@ -1,0 +1,3 @@
+---
+filename: "{{ inventory_hostname }}_static_routes.yml"
+path: "{{ playbook_dir }}/output/{{ lookup('pipe','date +%Y%m%d') }}/"

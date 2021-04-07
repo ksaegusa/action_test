@@ -1,0 +1,5 @@
+---
+- name: gathered
+  cisco.ios.ios_static_routes:
+    state: gathered
+  register: gather_result

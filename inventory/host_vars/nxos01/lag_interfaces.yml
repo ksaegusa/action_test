@@ -1,0 +1,5 @@
+lag_interfaces:
+-   members:
+    -   member: Ethernet1/1
+    -   member: Ethernet1/2
+    name: port-channel11

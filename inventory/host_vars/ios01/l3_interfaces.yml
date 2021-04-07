@@ -1,0 +1,18 @@
+l3_interfaces:
+-   ipv4:
+    -   address: 10.200.11.170 255.255.255.255
+    name: loopback11170
+-   ipv4:
+    -   address: 10.200.12.170 255.255.255.255
+    name: loopback12170
+-   ipv4:
+    -   address: 10.200.13.170 255.255.255.255
+    name: loopback13170
+-   ipv4:
+    -   address: 10.200.14.170 255.255.255.255
+    name: loopback14170
+-   ipv4:
+    -   address: 10.10.20.48 255.255.255.0
+    name: GigabitEthernet1
+-   name: GigabitEthernet2
+-   name: GigabitEthernet3

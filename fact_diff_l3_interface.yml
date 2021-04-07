@@ -4,19 +4,19 @@
 
   tasks:
     - name: gathered
-      cisco.ios.ios_static_routes:
+      cisco.ios.ios_l3_interfaces:
         state: gathered
       register: gather_result
 
     - name: current config rendered
-      cisco.ios.ios_static_routes:
+      cisco.ios.ios_l3_interfaces:
         config: "{{ gather_result['gathered']  }}"
         state: rendered
       register: current_config
 
     - name: asumed config rendered
-      cisco.ios.ios_static_routes:
-        config: "{{ static_routes }}"
+      cisco.ios.ios_l3_interfaces:
+        config: "{{ l3_interfaces }}"
         state: rendered
       register: assumed_config
 

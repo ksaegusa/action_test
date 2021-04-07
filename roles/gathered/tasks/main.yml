@@ -1,0 +1,24 @@
+---
+- name: import ios file 
+  ansible.builtin.import_tasks: ios.yml
+  when: ansible_network_os == 'ios'
+
+# - name: import iosxr file
+#   ansible.builtin.import_tasks: iosxr.yml
+#   when: ansible_network_os == 'iosxr'
+
+# - name: import nxos file
+#   ansible.builtin.import_tasks: nx.yml
+#   when: ansible_network_os == 'nxos'
+
+- name: create date directory
+  ansible.builtin.file:
+    path: "{{ path }}"
+    state: directory
+  delegate_to: localhost
+
+- name: copy content
+  ansible.builtin.copy:
+    content: "{{ {'static_route': gather_result['gathered'] } | to_nice_yaml }}"
+    dest: "{{ path }}{{filename}}"
+  delegate_to: localhost

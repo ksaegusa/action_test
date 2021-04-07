@@ -1,0 +1,5 @@
+acls:
+-   acls:
+    -   acl_type: extended
+        name: meraki-fqdn-dns
+    afi: ipv4

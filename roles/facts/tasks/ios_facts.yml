@@ -1,0 +1,17 @@
+---
+- name: (ios)facts network resources 
+  cisco.ios.ios_facts:
+    gather_subset:
+      - config
+    gather_network_resources: "{{ resources }}"
+  register: facts_result
+
+- name: (ios)write the configuration to a file
+  ansible.builtin.copy:
+    content: "{{ { item: fact[item] } | to_nice_yaml }}"
+    dest: "{{ inventory_dir }}/host_vars/{{ inventory_hostname }}/{{ item }}.yml"
+  delegate_to: localhost
+  vars: 
+    fact: "{{ facts_result['ansible_facts']['ansible_network_resources'] }}"
+  loop: "{{ resources }}"
+  when: fact[item] is defined
